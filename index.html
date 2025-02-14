@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Butterfly</title>
+    <style>
+        body {
+            background: url('https://source.unsplash.com/1600x900/?stars,night') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 15vh;
+            animation: fadeIn 2s ease-in;
+        }
+        h1 {
+            font-size: 3.5em;
+            text-shadow: 0 0 15px gold;
+            animation: shimmer 3s infinite alternate;
+        }
+        @keyframes shimmer {
+            from { text-shadow: 0 0 15px gold; }
+            to { text-shadow: 0 0 25px goldenrod, 0 0 40px rgba(255, 215, 0, 0.7); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .button {
+            background: transparent;
+            border: 2px solid gold;
+            padding: 12px 24px;
+            font-size: 1.2em;
+            color: gold;
+            cursor: pointer;
+            transition: 0.3s;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        .button:hover {
+            background: gold;
+            color: black;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.9);
+        }
+        .content {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.6em;
+            opacity: 0;
+            animation: fadeIn 1.5s forwards;
+            max-width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .letter {
+            text-align: left;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To My Butterfly</h1>
+        <button class="button" onclick="showContent('message')">Click to Enter</button>
+        
+        <div id="message" class="content">
+            <p>Since we couldn’t be together today, I made this little world just for you.</p>
+            <button class="button" onclick="showContent('letter')">Next</button>
+        </div>
+        
+        <div id="letter" class="content letter">
+            <p><strong>My dearest Twyla,</strong></p>
+            <p>You are my butterfly, my brightest star. Every day with you is magic...</p>
+            <p>(Continue your love letter here)</p>
+            <button class="button" onclick="showContent('memory')">Next</button>
+        </div>
+        
+        <div id="memory" class="content">
+            <p>Remember when we first met wet?</p>
+            <button class="button" onclick="showContent('surprise')">Next</button>
+        </div>
+        
+        <div id="surprise" class="content">
+            <p><em>Sei la mia farfalla 🦋</em></p>
+            <p>(A hidden Tintin reference appears here!)</p>
+            <p>I love you endlessly.</p>
+        </div>
+    </div>
+    
+    <script>
+        function showContent(id) {
+            document.querySelectorAll(".content").forEach(el => el.style.display = "none");
+            document.getElementById(id).style.display = "block";
+        }
+    </script>
+</body>
+</html>
